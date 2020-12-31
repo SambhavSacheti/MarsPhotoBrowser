@@ -1,0 +1,59 @@
+
+        <RadzenCard Style="width:350px;">
+        <h4>Browse by:</h4>
+           <div class="Row">          
+                    <div><b>Sol:</b></div>               
+                    @if (previousSol.HasValue)
+                    {
+                        <RadzenButton style="margin: 0 1rem 1rem 0" Text=@("< " + previousSol.Value)
+                            Click=@PreviousSolButtonClickAsync ButtonStyle="ButtonStyle.Primary"></RadzenButton>
+                    }
+                    @if (nextSol.HasValue)
+                    {
+                        <RadzenButton style="margin: 0 1rem 1rem 0" Text=@(nextSol.Value + " >") Click=@NextSolButtonClickAsync
+                            ButtonStyle="ButtonStyle.Secondary"></RadzenButton>
+                    }
+            </div>                
+            <div class="Row">
+                <div><b>Earth Date:</b></div>  
+                  <div>  <RadzenDatePicker TValue="DateTime?" DateFormat="dd-MMM-yyyy" Style="width:150px;display:inline-block;"
+                        DateRender=@((args)=>args.Disabled =!dates.Contains(args.Date))
+                        @bind-Value="SelectedDate" 
+                        YearRange="@($"{RoverPhotoManifest.LandingDate.Year}:{RoverPhotoManifest.MaxDate.Year}")"/>                   
+                 <RadzenButton Style="margin-left:10px; display:inline-block" Text="Go" Click="@(args=>OnChangeDateClicked())" />
+            </div>
+            </div>
+        </RadzenCard>
+
+@code{
+    [CascadingParameter(Name = "previousSol")] long? previousSol { get; set; }
+
+    [CascadingParameter(Name = "nextSol")] long? nextSol { get; set; }
+
+
+    [Parameter] public EventCallback<MouseEventArgs> NextSolButtonClickAsync { get; set; }
+
+    [Parameter] public EventCallback<MouseEventArgs> PreviousSolButtonClickAsync { get; set; }
+
+    [Parameter] public PhotoManifest RoverPhotoManifest { get; set; }
+
+    [Parameter] public EventCallback<DateTime?> DateChange { get; set; }
+
+    [Parameter] public DateTime? SelectedDate { get; set; }
+
+    private string yearRange => $"{RoverPhotoManifest.LandingDate.Year}:{RoverPhotoManifest.MaxDate.Year}";
+
+
+    private IEnumerable<DateTimeOffset> dates;
+
+    protected override void OnInitialized()
+    {
+        dates = RoverPhotoManifest.Photos.Select(o => o.EarthDate.Value).ToList<DateTimeOffset>();
+    }
+
+   private async Task  OnChangeDateClicked()
+   {
+       await DateChange.InvokeAsync(SelectedDate);
+   }
+
+}

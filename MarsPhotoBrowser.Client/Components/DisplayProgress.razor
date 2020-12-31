@@ -1,0 +1,18 @@
+  <br/>
+  <div class="row">
+    <div class="col-xl-6">
+        <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" Style="margin: 50px 0px 10px 0px" />
+        <br />
+        @if (LoadingProgress != string.Empty)
+        {
+            <div class="row">
+                <h6>@LoadingProgress</h6>
+            </div>
+        }
+    </div>
+  </div>
+    
+    @code{
+        [Parameter]
+        public string LoadingProgress { get; set; }
+    }

@@ -1,0 +1,37 @@
+<RadzenCard Style="width:350px">
+    <div class="row">
+        <div class="col-md-12">
+            <div>Sol: <b>@SelectedSolManifest.Sol</b></div>
+            <div>Total Photos: <b>@SelectedSolManifest.TotalPhotos</b></div>
+        </div>
+    </div>
+</RadzenCard>
+
+<RadzenDataList  Data="@PhotosToDisplay" WrapItems=true  TItem="LatestPhoto" AllowPaging=true PageSize=25 LoadData="@LoadPhotos" Count=@((int)SelectedSolManifest.TotalPhotos) >
+    <Template Context="photo">
+        <RadzenCard Style="width:325px; margin-left: -20px;">
+            <div class="row">
+                <div class="col-md-12">
+                <RadzenImage Path=@photo.img_src Style="width:300px;" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                <small>Camera:</small>
+                <small>@photo.camera.full_name</small>
+                </div>
+            </div>
+        </RadzenCard>
+    </Template>
+</RadzenDataList>
+
+@code{
+    [Parameter]
+    public List<LatestPhoto> PhotosToDisplay { get; set; }
+
+    [CascadingParameter(Name = "SelectedSolManifest") ] public Photo SelectedSolManifest {get;set;}
+
+    [Parameter]
+    public EventCallback<LoadDataArgs> LoadPhotos {get;set;}
+
+}

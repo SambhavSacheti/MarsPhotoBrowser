@@ -1,0 +1,40 @@
+﻿<CascadingValue Value="@previousSol" Name="previousSol" IsFixed="true">
+    <CascadingValue Value="@nextSol" Name="nextSol" IsFixed="true">
+        <CascadingValue Value="@selectedSolManifest" Name="SelectedSolManifest">
+            <div>
+                <h2 style="display: inline-block;">Mars Photo Browser</h2>
+                <a style="display:inline-block;float: right" href="https://github.com/chrisccerami/mars-photo-api">
+                Github  <img src="images/GitHub-Mark-Light-32px.png" alt="Go to Github"></a>
+           </div>
+           <hr/>
+           <div>
+              Explore the pictures taken by the <a href="https://en.wikipedia.org/wiki/Curiosity_%28rover%29">Curiosty Rover</a>
+              on Mars. They are provided by the <a href="https://api.nasa.gov/">NASA APIs</a>.
+           </div>
+            @if(roverPhotoManifest == null)
+            {
+                  <DisplayProgress LoadingProgress=@LoadingProgress />
+            }
+            else
+            {
+              <BrowseFilter 
+                    RoverPhotoManifest=@roverPhotoManifest 
+                    DateChange="@(args=>DateChangedAsync(args))"
+                    SelectedDate="@(selectedSolManifest.EarthDate.Value.DateTime)"
+                    NextSolButtonClickAsync=@NextSolButtonClickedAsync
+                    PreviousSolButtonClickAsync=@PreviousSolButtonClickedAsync 
+                />
+                @if (photos == null)
+                {
+                    <DisplayProgress LoadingProgress=@LoadingProgress />
+                }
+                else
+                {
+                    <div id="top" />
+                    <PhotoGrid PhotosToDisplay=@photos LoadPhotos=@ChangePage />
+                }
+            }
+           
+        </CascadingValue>
+    </CascadingValue>
+</CascadingValue>
