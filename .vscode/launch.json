@@ -9,25 +9,8 @@
             "type": "blazorwasm",
             "request": "launch",
             "preLaunchTask": "build",
-            "cwd": "${workspaceFolder}/MarsPhotoBrowser.Client"
+            "cwd": "${workspaceFolder}/Client"
         },
-        {
-            "name": "Attach a Blazor WebAssembly App",
-            "type": "blazorwasm",
-            "request": "attach",
-            "cwd": "${workspaceFolder}/MarsPhotoBrowser.Client",
-        },
-
-        {
-            "name": "API Tester",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/ApiTester/bin/Debug/net5.0/ApiTester.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/ApiTester",
-            "stopAtEntry": false,
-            "console": "internalConsole"
-        }
+        
     ]
 }

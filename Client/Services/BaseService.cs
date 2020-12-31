@@ -1,7 +1,7 @@
 using System.Net.Http;
-using MarsPhotoBrowser.Data.Models;
+using Data.Models;
 
-namespace MarsPhotoBrowser.Client.Services
+namespace Client.Services
 {
     public abstract record BaseService( MarsPhotoBrowserConfiguration MarsPhotoBrowserConfig,HttpClient httpClient);
 }

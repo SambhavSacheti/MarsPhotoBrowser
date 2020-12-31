@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MarsPhotoBrowser.Data.Models;
-using MarsPhotoBrowser.Client.Services;
+using Data.Models;
+using Client.Services;
 using Radzen;
 
-namespace MarsPhotoBrowser.Client
+namespace Client
 {
     public class Program
     {

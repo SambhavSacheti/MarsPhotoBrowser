@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MarsPhotoBrowser.Data.Models
+namespace Data.Models
 {
     public record MarsPhotoBrowserConfiguration
     {

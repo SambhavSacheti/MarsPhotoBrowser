@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using MarsPhotoBrowser.Client.Services;
-using MarsPhotoBrowser.Data.Models;
+using Client.Services;
+using Data.Models;
 using Microsoft.AspNetCore.Components;
 using Radzen;
 
-namespace MarsPhotoBrowser.Client.Components
+namespace Client.Components
 {
     public partial class PhotoBrowseMain : ComponentBase
     {

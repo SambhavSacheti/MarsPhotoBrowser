@@ -1,12 +1,12 @@
 
-using MarsPhotoBrowser.Data.Models;
+using Data.Models;
 using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarsPhotoBrowser.Client.Services
+namespace Client.Services
 {
     public sealed record PhotoService(MarsPhotoBrowserConfiguration marsPhotoBrowserConfiguration, HttpClient httpClient)
     : BaseService(marsPhotoBrowserConfiguration, httpClient)

@@ -1,6 +1,6 @@
 
 
-using MarsPhotoBrowser.Data.Models;
+using Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace MarsPhotoBrowser.Client.Services
+namespace Client.Services
 {
     public sealed record ManifestService(MarsPhotoBrowserConfiguration marsPhotoBrowserConfiguration, HttpClient httpClient)
     : BaseService(marsPhotoBrowserConfiguration, httpClient)

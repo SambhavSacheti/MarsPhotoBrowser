@@ -13,7 +13,7 @@
   </ItemGroup>
 
    <ItemGroup>
-     <ProjectReference Include="..\MarsPhotoBrowser.Data\MarsPhotoBrowser.Data.csproj" />
+     <ProjectReference Include="..\Data\Data.csproj" />
       <Watch Include="**\*.razor" />
   </ItemGroup>
 
