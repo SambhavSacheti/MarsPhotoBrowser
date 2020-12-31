@@ -29,7 +29,7 @@ The Live Demo is running on [Azure Static Web App](https://azure.microsoft.com/e
 
 ## Technologies and articles
 * [VS Code](https://code.visualstudio.com/) 
-* [Blazor Webassembly](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)
+* [Blazor WebAssembly](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) & [ASP.NET 5.0](https://dotnet.microsoft.com/apps/aspnet)
 * [Radzen Blazor Components](https://blazor.radzen.com/)
 * [Chris Sainty's article on Fragment Routing with Blazor](https://chrissainty.com/fragment-routing-with-blazor/)
 * [Azure Static Web Apps with .NET and Blazor](https://devblogs.microsoft.com/aspnet/azure-static-web-apps-with-blazor/)
