@@ -23,7 +23,7 @@ namespace Client.Services
             foreach (var rover in MarsPhotoBrowserConfig.Rovers)
             {
                 string roverManifestUrl = MarsPhotoBrowserConfig.NasaMarsApiUrl + $"manifests/{rover}?api_key={MarsPhotoBrowserConfig.NasaMarsApiKey}";
-                progress.Report($"Loading data for Rover :{rover}....");
+                progress.Report($"Loading Mission Manifest for {rover}....");
 
                 roverManifest = await httpClient.GetFromJsonAsync<RoverManifest>(roverManifestUrl);
 
